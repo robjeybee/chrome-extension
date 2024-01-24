@@ -2,8 +2,8 @@
     "manifest_version": 3,
     "version": "1.0",
     "name": "URL Tracker",
-    "action" {
+    "action": {
         "default_popup": "index.html",
-        "default_icon": "icon.png"
+        "default_icon": "url.png"
     }
 }
