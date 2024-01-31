@@ -19,7 +19,8 @@ body {
   padding: 10px;
 }
 
-#input-btn {
+#input-btn,
+#save-btn {
   background-color: #5f9341;
   border: #5f9341 1px solid;
   width: 300px;
