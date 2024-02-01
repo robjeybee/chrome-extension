@@ -4,7 +4,7 @@ const inputEl = document.getElementById("input-el");
 
 const inputBtn = document.getElementById("input-btn");
 const deleteBtn = document.getElementById("delete-btn");
-const saveBtn = document.getElementById("save-btn");
+const tabBtn = document.getElementById("tab-btn");
 
 const ulEl = document.getElementById("ul-el");
 
@@ -15,9 +15,10 @@ if (leadsFromLocalStorage) {
   render(myLeads);
 }
 
-saveBtn.addEventListener("click", function () {
+tabBtn.addEventListener("click", function () {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    myLeads.push(tabs[0].url);
+
+     myLeads.push(tabs[0].url);
     localStorage.setItem("myLeads", JSON.stringify(myLeads));
     render(myLeads);
   });
@@ -26,7 +27,7 @@ saveBtn.addEventListener("click", function () {
 deleteBtn.addEventListener("dblclick", function () {
   localStorage.clear();
   myLeads = [];
-  ulEl.innerHTML = "";
+  render(myLeads)
 });
 
 inputBtn.addEventListener("click", function () {
@@ -34,7 +35,7 @@ inputBtn.addEventListener("click", function () {
   inputEl.value = "";
   localStorage.setItem("myLeads", JSON.stringify(myLeads));
   render(myLeads);
-  console.log(localStorage.getItem("myLeads"));
+
 });
 
 function render(leads) {
